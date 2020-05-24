@@ -1,24 +1,16 @@
-# README
+# Fjord Form
+Fjord Formとはサイトにフォームを`簡単`に設置することを実現するアプリです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+フォームのHTMLを貼ることによってフォーム内容をメールで転送します。
+HTMLとCSSをカスタマイズして独自のフォームを作ることが可能です。
 
-Things you may want to cover:
 
-* Ruby version
+## Environment
+- Ruby 2.7.0
+- Rails 6.0.3.1
+- Postgresql 11+
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Install
+coming soon
+## Setup
+coming soon
