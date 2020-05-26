@@ -23,13 +23,13 @@ default: &default
 
 development:
   <<: *default
-  database: form_development
+  database: form_app_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: form
+  #username: form_app
 
   # The password associated with the postgres role (username).
   #password:
@@ -57,9 +57,9 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: form_test
+  database: form_app_test
 
-# As with config/credentials.yml, you never want to store sensitive information,
+# As with config/credentials.yml, you never want to store sensitive inform_appation,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
 #
@@ -68,7 +68,7 @@ test:
 # for a full rundown on how to provide these environment variables in a
 # production deployment.
 #
-# On Heroku and other platform providers, you may have a full connection URL
+# On Heroku and other platform_app providers, you may have a full connection URL
 # available as an environment variable. For example:
 #
 #   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: form_production
-  username: form
-  password: <%= ENV['FORM_DATABASE_PASSWORD'] %>
+  database: form_app_production
+  username: form_app
+  password: <%= ENV['form_app_DATABASE_PASSWORD'] %>
