@@ -8,4 +8,9 @@ html
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
   body
+    - flash.each do |flash_key, value|
+      - key = nil
+      - key = "info" if flash_key == "notice"
+      - key = "danger" if flash_key == "alert"
+      = content_tag :div, value, class: "alert alert-#{key} mt-3", role: "alert" if key
     = yield
