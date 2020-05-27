@@ -1,1 +1,7 @@
 h1 DASHBOARD
+div
+  = link_to "新しいフォームを作る", new_form_path
+ul
+  - @forms.each do |form|
+    li
+      = link_to form.name, form

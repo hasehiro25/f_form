@@ -2,5 +2,6 @@
 
 class HomeController < ApplicationController
   def index
+    @forms = current_user.forms
   end
 end
