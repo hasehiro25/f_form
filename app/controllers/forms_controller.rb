@@ -18,6 +18,19 @@ class FormsController < ApplicationController
     @form = current_user.forms.find(params[:id])
   end
 
+  def edit
+    @form = current_user.forms.find(params[:id])
+  end
+
+  def update
+    @form = current_user.forms.find(params[:id])
+    if @form.update(form_params)
+      redirect_to @form, notice: "フォーム内容を更新しました"
+    else
+      render "edit"
+    end
+  end
+
   private
     def form_params
       params.require(:form).permit(:name, :domain, :redirect_url)
