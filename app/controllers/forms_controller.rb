@@ -31,6 +31,12 @@ class FormsController < ApplicationController
     end
   end
 
+  def destroy
+    form = current_user.forms.find(params[:id])
+    form.destroy
+    redirect_to root_path, notice: "フォームを削除しました"
+  end
+
   private
     def form_params
       params.require(:form).permit(:name, :domain, :redirect_url)

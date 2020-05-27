@@ -11,5 +11,5 @@ Rails.application.routes.draw do
       get :activate
     end
   end
-  resources :forms, only: [:new, :create, :show, :edit, :update]
+  resources :forms
 end

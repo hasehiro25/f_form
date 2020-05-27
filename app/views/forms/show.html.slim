@@ -12,5 +12,7 @@ dl
     | Endpointid
   dd
     = @form.endpoint_id
-
-= link_to "フォームを編集する", edit_form_path(@form)
+div
+  = link_to "フォームを編集する", edit_form_path(@form)
+div
+  = link_to "フォームを削除する", form_path(@form), method: :delete, data: { confirm: "本当に削除してよろしいでしょうか？" }
