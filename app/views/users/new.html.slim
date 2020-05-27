@@ -1,0 +1,15 @@
+h1 アカウント登録
+= render "application/errors", object: @user
+= form_with model: @user, local: true do |f|
+  = f.label :email
+  = f.text_field :email
+
+  = f.label :password
+  = f.password_field :password
+
+  = f.label :password_confirmation
+  = f.password_field :password_confirmation
+
+  = f.submit
+
+= link_to "ログイン", login_path

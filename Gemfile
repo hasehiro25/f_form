@@ -14,8 +14,10 @@ gem "jbuilder", "~> 2.7"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "slim"
 gem "html2slim"
+gem "sorcery"
 gem "rubocop-rails", require: false
 gem "rubocop-performance", require: false
+gem "rails-i18n", "~> 6.0.0"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
@@ -28,6 +30,7 @@ group :development do
   gem "listen", "~> 3.2"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
+  gem "letter_opener"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
