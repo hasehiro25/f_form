@@ -1,8 +1,8 @@
-= form_with url: login_path, method: :post, local: true do |f|
+= form_with model: User.new, url: login_path, method: :post, local: true do |f|
   = f.label :email
   = f.text_field :email
 
   = f.label :password
   = f.password_field :password
 
-  = f.submit
+  = f.submit "ログイン"
