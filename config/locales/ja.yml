@@ -8,3 +8,8 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード(確認)
+      form:
+          name: フォーム名
+          domain: ドメイン名
+          redirect_url: リダイレクト先
+          endpoint_id: エンドポイントID
