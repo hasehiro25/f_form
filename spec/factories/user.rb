@@ -5,5 +5,10 @@ FactoryBot.define do
     email { "sample@example.comm" }
     password { "hogehoge" }
     password_confirmation { "hogehoge" }
+    factory :activated_user do
+      after(:create) do |user|
+        user.activate!
+      end
+    end
   end
 end

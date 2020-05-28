@@ -11,4 +11,5 @@ Rails.application.routes.draw do
       get :activate
     end
   end
+  resources :forms
 end
