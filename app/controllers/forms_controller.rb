@@ -15,15 +15,15 @@ class FormsController < ApplicationController
   end
 
   def show
-    @form = current_user.forms.find(params[:id])
+    @form = set_form
   end
 
   def edit
-    @form = current_user.forms.find(params[:id])
+    @form = set_form
   end
 
   def update
-    @form = current_user.forms.find(params[:id])
+    @form = set_form
     if @form.update(form_params)
       redirect_to @form, notice: "フォーム内容を更新しました"
     else
@@ -32,12 +32,16 @@ class FormsController < ApplicationController
   end
 
   def destroy
-    form = current_user.forms.find(params[:id])
+    form = set_form
     form.destroy
     redirect_to root_path, notice: "フォームを削除しました"
   end
 
   private
+    def set_form
+      current_user.forms.find(params[:id])
+    end
+
     def form_params
       params.require(:form).permit(:name, :domain, :redirect_url)
     end
