@@ -11,7 +11,7 @@ class Api::V1::FormsController < ApplicationController
     @form = Form.find_by!(endpoint_id: params[:id])
     raise "unauthorized domain" if unauthorized_domain?
     data = request.request_parameters.to_h
-    # @form.contacts.create(body: data)
+    @form.inquiries.create!(content: data.to_json)
     InquiryMailer.with(form: @form, user: @form.user, data: data).inquiry_info.deliver_now
     redirect_to @form.redirect_url
   end
