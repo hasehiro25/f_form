@@ -8,19 +8,11 @@ class Api::V1::FormsController < ApplicationController
   end
 
   def create
-    p "success to do"
     @form = Form.find_by!(endpoint_id: params[:id])
     raise "unauthorized domain" if unauthorized_domain?
-
-    # convert to hash
-
-    # check for xss
-    # save to db
-    # send email
-
-    p request.headers[:HTTP_ORIGIN] # domainチェックに使用
-    p request.request_parameters.to_h
-
+    data = request.request_parameters.to_h
+    # @form.contacts.create(body: data)
+    InquiryMailer.with(form: @form, user: @form.user, data: data).inquiry_info.deliver_now
     redirect_to @form.redirect_url
   end
 
