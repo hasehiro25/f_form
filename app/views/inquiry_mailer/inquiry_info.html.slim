@@ -1,0 +1,8 @@
+p= "#{@user.email}様"
+
+p= "#{@form.name}にお問い合わせがありました"
+- @data.each do |key, value|
+  dt
+    = format_with_br(key)
+  dd
+    = format_with_br(value)

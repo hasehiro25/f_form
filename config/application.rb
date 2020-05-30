@@ -34,5 +34,7 @@ module FormApp
     config.i18n.default_locale = :ja
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.action_controller.forgery_protection_origin_check = false
   end
 end
