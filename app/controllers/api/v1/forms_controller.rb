@@ -9,12 +9,11 @@ class Api::V1::FormsController < ApplicationController
 
   def create
     p "success to do"
-    form = Form.find_by!(endpoint_id: params[:id])
-    p form
-    # find form
-    # check domain
+    @form = Form.find_by!(endpoint_id: params[:id])
+    raise "unauthorized domain" if unauthorized_domain?
+
     # convert to hash
-    # remove unused params
+
     # check for xss
     # save to db
     # send email
@@ -22,6 +21,16 @@ class Api::V1::FormsController < ApplicationController
     p request.headers[:HTTP_ORIGIN] # domainチェックに使用
     p request.request_parameters.to_h
 
-    redirect_to form.redirect_url
+    redirect_to @form.redirect_url
   end
+
+  private
+    def unauthorized_domain?
+      !authorized_domain?
+    end
+
+    def authorized_domain?
+      domain = request.headers[:HTTP_ORIGIN].gsub(/(http|https):\/\//, "")
+      domain == @form.domain
+    end
 end
