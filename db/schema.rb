@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_180423) do
+ActiveRecord::Schema.define(version: 2020_05_30_190829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 2020_05_26_180423) do
     t.index ["user_id"], name: "index_forms_on_user_id"
   end
 
+  create_table "inquiries", force: :cascade do |t|
+    t.bigint "form_id", null: false
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["form_id"], name: "index_inquiries_on_form_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
@@ -41,4 +49,5 @@ ActiveRecord::Schema.define(version: 2020_05_26_180423) do
   end
 
   add_foreign_key "forms", "users"
+  add_foreign_key "inquiries", "forms"
 end

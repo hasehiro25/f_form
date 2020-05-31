@@ -2,6 +2,7 @@
 
 class Form < ApplicationRecord
   belongs_to :user
+  has_many :inquiries
 
   validates :name, presence: true
   validates :domain, presence: true
