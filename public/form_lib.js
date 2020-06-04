@@ -9,52 +9,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
   for (const error of errors) {
     error.style.display = "none"
-    // error.style.visibility = "hidden"
   }
 
-  //blankのvalidation
-  let blank_validator = () => {
+  let validateBlank = () => {
     for (const elms of blank_validations) {
       const parent = elms.closest("div")
       const error = parent.querySelector(".fform-js-error-blank")
-      if (elms.value == "") {
-        // error.style.visibility = "visible"
+      if (elms.value != "") {
+        error.style.display = "none"
+      } else {
         error.style.display = "block"
         sendable = false
-      } else {
-        error.style.display = "none"
-        // error.style.visibility = "hidden"
       }
     }
   }
+
   let validateEmail = () => {
     for (const elms of emailValidations) {
       const parent = elms.closest("div")
       const error = parent.querySelector(".fform-js-error-email")
       const regex = /^[a-zA-Z0-9.!#$%&’*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-      console.log(regex.test(elms.value))
-      if (!regex.test(elms.value)) {
-        error.style.display = "block"
-        console.log("ERROR")
-        sendable = false
-      } else {
+      if (regex.test(elms.value)) {
         error.style.display = "none"
+      } else {
+        error.style.display = "block"
+        sendable = false
       }
     }
   }
 
-  //numeric validation
   let validateNumeric = () => {
     for (const elms of numericValidations) {
       const parent = elms.closest("div")
       const error = parent.querySelector(".fform-js-error-numeric")
-      if (!Number.isInteger(parseInt(elms.value))) {
-        // error.style.visibility = "visible"
+      if (Number.isInteger(parseInt(elms.value))) {
+        error.style.display = "none"
+      } else {
         error.style.display = "block"
         sendable = false
-      } else {
-        error.style.display = "none"
-        // error.style.visibility = "hidden"
       }
     }
   }
@@ -64,26 +56,27 @@ document.addEventListener('DOMContentLoaded', () => {
       const parent = elms.closest("div")
       const error = parent.querySelector(".fform-js-error-fullwidth-char")
       const regex = /^[a-zA-Z0-9!-/:-@¥[-`{-~\]]*$/
-      if (!regex.test(elms.value)) {
-        // error.style.visibility = "visible"
+      if (regex.test(elms.value)) {
+        error.style.display = "none"
+      } else {
         error.style.display = "block"
         sendable = false
-      } else {
-        error.style.display = "none"
-        // error.style.visibility = "hidden"
       }
     }
   }
 
-  submit.addEventListener('click', (e) => {
-    sendable = true
-    blank_validator()
+  let validateInputs = () => {
+    validateBlank()
     validateNumeric()
     validateFullwidthChar()
     validateEmail()
+  }
+
+  submit.addEventListener('click', (e) => {
+    sendable = true
+    validateInputs()
     if (sendable != true) {
       e.preventDefault()
     }
   })
-
 })
