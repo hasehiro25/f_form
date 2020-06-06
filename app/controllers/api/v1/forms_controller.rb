@@ -13,7 +13,7 @@ class Api::V1::FormsController < ApplicationController
     data = request.request_parameters.to_h
     @form.inquiries.create!(content: data.to_json)
     InquiryMailer.with(form: @form, user: @form.user, data: data).inquiry_info.deliver_now
-    redirect_to @form.redirect_url
+    @form.redirect_url? ? redirect_to(@form.redirect_url) : redirect_to(thankyou_url)
   end
 
   private
