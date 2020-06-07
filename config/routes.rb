@@ -19,4 +19,5 @@ Rails.application.routes.draw do
       post "forms(/:id)", to: "forms#create"
     end
   end
+  get "thankyou", to: "thankyou#index", as: "thankyou"
 end

@@ -1,5 +1,6 @@
 doctype html
 html
+  - class_page = content_for(:page_class).to_s
   head
     title
       | Form
@@ -8,6 +9,9 @@ html
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
   body
+  - if class_page == "thankyou"
+    = yield
+  - else
     - if logged_in?
       ul
         li= link_to "トップ", root_path
