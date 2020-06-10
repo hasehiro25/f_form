@@ -257,6 +257,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   factory_bot_rails
+  faraday
   html2slim
   jbuilder (~> 2.7)
   letter_opener
