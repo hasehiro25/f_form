@@ -12,6 +12,10 @@ dl
     | Endpointid
   dd
     = @form.endpoint_id
+  dt
+    | Recaptchaの設定
+  dd
+    = @form.recaptcha_status? ? "あり" : "なし"
 div
   = link_to "フォームを編集する", edit_form_path(@form)
 div

@@ -11,7 +11,7 @@ class Api::V1::FormsController < ApplicationController
     @form = Form.find_by!(endpoint_id: params[:id])
     authorize_domain(@form.domain)
     data = request.request_parameters.to_h
-    process_recaptcha(data, domain,) if data.has_key?("g-recaptcha-response")
+    process_recaptcha(data, domain,) if data.has_key?("g-recaptcha-response") || @form.recaptcha_status?
     @form.inquiries.create!(content: data.to_json)
     InquiryMailer.with(form: @form, user: @form.user, data: data).inquiry_info.deliver_now
     @form.redirect_url? ? redirect_to(@form.redirect_url) : redirect_to(thankyou_url)
