@@ -43,6 +43,6 @@ class FormsController < ApplicationController
     end
 
     def form_params
-      params.require(:form).permit(:name, :domain, :redirect_url)
+      params.require(:form).permit(:name, :domain, :redirect_url, :recaptcha_status)
     end
 end

@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const emailValidations = document.querySelectorAll(".fform-js-email-validation")
   const numericValidations = document.querySelectorAll(".fform-js-numeric-validation")
   const fullwidthCharValidations = document.querySelectorAll(".fform-js-fullwidth-char-validation")
+  const recaptcha = document.querySelector('.g-recaptcha')
   const submit = document.querySelector(".fform-js-submit")
   let sendable = true
 
@@ -72,6 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
     validateEmail()
   }
 
+  let disableSubmit = () => {
+    submit.disabled = true
+  }
+  if (recaptcha) { disableSubmit() }
+
   submit.addEventListener('click', (e) => {
     sendable = true
     validateInputs()
@@ -80,3 +86,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 })
+
+
+
+function allowSubmit() {
+  let submit = document.querySelector(".fform-js-submit")
+  submit.disabled = false
+}
+
+function disableSubmit() {
+  let submit = document.querySelector(".fform-js-submit")
+  submit.disabled = true
+}

@@ -32,6 +32,7 @@ module FormApp
     # the framework and any gems in your application.
     config.i18n.available_locales = [:en, :ja]
     config.i18n.default_locale = :ja
+    config.paths.add "lib", eager_load: true
     # Don't generate system test files.
     config.generators.system_tests = nil
 
