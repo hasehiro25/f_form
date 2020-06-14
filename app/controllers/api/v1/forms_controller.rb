@@ -36,7 +36,10 @@ class Api::V1::FormsController < ApplicationController
     end
 
     def check_recaptcha(token, registered_domain)
-      recaptcha_checker =  RecaptchaChecker.new({ token: token, registered_domain: registered_domain })
-      raise "unauthorized" unless recaptcha_checker.valid_token?
+      raise "unauthorized" unless recaptcha_checker(token, registered_domain).valid_token?
+    end
+
+    def recaptcha_checker(token, registered_domain)
+      RecaptchaChecker.new({ token: token, registered_domain: registered_domain })
     end
 end
