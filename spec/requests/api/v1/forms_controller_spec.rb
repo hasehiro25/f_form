@@ -43,5 +43,30 @@ describe Api::V1::FormsController, type: :request do
         expect { subject }.to raise_error(RuntimeError, "unauthorized domain")
       end
     end
+
+    context "with recaptcha" do
+      let(:form) { create(:form, user: user, recaptcha_status: true) }
+      context "with valid recaptcha response" do
+        before do
+          recaptcha_checker_mock = double("Recaptcha Checker")
+          allow(recaptcha_checker_mock).to receive(:valid_token?).and_return (true)
+          allow_any_instance_of(Api::V1::FormsController).to receive(:recaptcha_checker).and_return(recaptcha_checker_mock)
+        end
+        subject { post api_v1_form_url(form.endpoint_id), params: { "お名前": "太郎", "内容": "こんにちは", "g-recaptcha-response": "some-token" }, headers: { "Origin" => "http://example.com" } }
+        it "should send email" do
+          subject
+          expect(response).to redirect_to(form.redirect_url)
+        end
+
+        it "should save to database" do
+          expect { subject }.to change { Inquiry.count }.by 1
+        end
+
+        it "shouldn't have g-recaptcha-response" do
+          subject
+          expect(Inquiry.last).not_to match " g-recaptcha-response"
+        end
+      end
+    end
   end
 end
