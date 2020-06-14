@@ -15,17 +15,18 @@ class RecaptchaChecker
     res["success"] == true && res["hostname"] == registered_domain_wihtout_port
   end
 
-  def fetch_api
-    url = URI.parse(RECAPTCHA_API_URL)
-    body = {
-      "secret": ENV["RECAPTCHA_SECRET_KEY"],
-      "response": @token
-    }
-    res = Faraday.post(url, body)
-    res.body
-  end
+  private
+    def fetch_api
+      url = URI.parse(RECAPTCHA_API_URL)
+      body = {
+        "secret": ENV["RECAPTCHA_SECRET_KEY"],
+        "response": @token
+      }
+      res = Faraday.post(url, body)
+      res.body
+    end
 
-  def registered_domain_wihtout_port
-    @registered_domain.gsub(/:\d*/, "")
+    def registered_domain_wihtout_port
+      @registered_domain.gsub(/:\d*/, "")
   end
 end
