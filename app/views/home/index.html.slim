@@ -1,7 +1,12 @@
-h1 DASHBOARD
-div
-  = link_to "新しいフォームを作る", new_form_path
-ul
-  - @forms.each do |form|
-    li
-      = link_to form.name, form
+.container
+  h1 DASHBOARD
+  div
+    = link_to new_form_path, class: "button is-link is-outlined" do
+      | 新しいフォームを作る
+
+    - @forms.each do |form|
+      .columns
+        .column.is-half
+          .card
+            .card-content
+              = link_to form.name, form
