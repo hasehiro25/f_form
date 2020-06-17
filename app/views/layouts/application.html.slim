@@ -16,7 +16,7 @@ html
       - key = nil
       - key = "success" if flash_key == "notice"
       - key = "danger" if flash_key == "alert"
-      = content_tag :div, value, class: "notification is-#{key}", role: "alert" if key
+      = content_tag :div, value, class: "notification is-#{key} is-light" if key
 
     - if logged_in?
       navbar.navbar
