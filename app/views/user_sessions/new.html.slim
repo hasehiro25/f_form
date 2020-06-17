@@ -1,3 +1,10 @@
-h1 ログイン
-= render "form"
-= link_to "アカウントを作成", new_user_path 
+section
+  .container
+    .columns.is-centered
+      .column.is-one-third
+        h2.title ログイン
+        = render "form"
+section
+  .container
+    .columns.is-centered
+        = link_to "アカウントを作成", new_user_path

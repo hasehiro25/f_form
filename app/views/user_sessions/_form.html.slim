@@ -1,8 +1,9 @@
 = form_with model: User.new, url: login_path, method: :post, local: true do |f|
-  = f.label :email
-  = f.text_field :email
-
-  = f.label :password
-  = f.password_field :password
-
-  = f.submit "ログイン"
+  .field
+    = f.label :email, class: "label"
+    = f.text_field :email, class: "input"
+  .field
+    = f.label :password, class: "label"
+    = f.password_field :password, class: "input"
+  .field
+    = f.submit "ログイン", class: "button is-primary"

@@ -1,0 +1,47 @@
+ruby:
+  code = <<-EOS
+  <HTML>
+    <head>
+    </head>
+    <body>
+      <!-- フォーム部分 -->
+      <script defer src="#{fform_core_js_url}"></script>
+      <form action="#{endpoint_url(form.endpoint_id)}" method="post">
+        <div class="form-group">
+          <label>
+            メールアドレス:
+            <input type="email" name="メールアドレス" class="fform-js-blank-validation fform-js-email-validation">
+          </label>
+          <div class="fform-js-error-email">・メールアドレスの形式が違います</div>
+          <div class="fform-js-error-blank">・メールアドレスを入力してください</div>
+        </div>
+
+        <div class="form-group">
+          <label>
+            お名前:
+            <input type="text" name="お名前" class="fform-js-blank-validation">
+          </label>
+          <div class="fform-js-error-blank">・お名前を入力してください</div>
+        </div>
+        <div class="form-group">
+          <label>
+            メッセージ:
+            <textarea name="メッセージ"></textarea>
+          </label>
+        </div>
+        <button type="submit" class="fform-js-submit">Send</button>
+      </form>
+    </body> 
+  </HTML>
+  EOS
+
+.tabs
+  ul
+    li.is-active
+      a HTML
+    li
+      a HTML(without validation)
+    li
+      a CSS
+pre
+  = code

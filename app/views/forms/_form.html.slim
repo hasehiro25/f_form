@@ -1,17 +1,28 @@
 = render "application/errors", object: form
 
-= form_with model: form, local: true do |f|
-  = f.label :name
-  = f.text_field :name
+.columns.is-centered
+  .column.is-half
+    = form_with model: form, local: true do |f|
+      .field
+        = f.label :name, class: "label"
+        .control
+          = f.text_field :name, class: "input"
+      
+      .field
+        = f.label :domain, class: "label"
+        .control
+          = f.text_field :domain, class: "input"
 
-  = f.label :domain
-  = f.text_field :domain
+      .field
+        = f.label :redirect_url, class: "label"
+        .control
+          = f.text_field :redirect_url, class: "input"
+      .field
+        = f.label :recaptcha_status, class: "label"
+        = f.check_box :recaptcha_status
+        | Recaptchaを有効にする
 
-  = f.label :redirect_url
-  = f.text_field :redirect_url
-
-  = f.label :recaptcha_status
-  = f.check_box :recaptcha_status
-
-  = f.submit
+      .field
+        .control
+          = f.submit "フォーム作成", class: "button is-primary"
   
