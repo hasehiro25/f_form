@@ -15,7 +15,7 @@
         dt
           | Endpointid
         dd
-          = @form.endpoint_id
+          = endpoint_url(@form.endpoint_id)
         dt
           | Recaptchaの設定
         dd
@@ -26,7 +26,7 @@
     .column.is-full
       section
         h2.title.is-4 コードサンプル
-        = render "sample_code"
+        = render "sample_code", form: @form
   .columns
     .column.is-half
       section

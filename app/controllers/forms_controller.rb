@@ -39,7 +39,7 @@ class FormsController < ApplicationController
 
   private
     def set_form
-      current_user.forms.find(params[:id])
+      current_user.forms.find(params[:id]).decorate
     end
 
     def form_params

@@ -5,7 +5,8 @@ ruby:
     </head>
     <body>
       <!-- フォーム部分 -->
-      <form action="" method="post">
+      <script defer src="#{form_js_url}"></script>
+      <form action="#{endpoint_url(form.endpoint_id)}" method="post">
         <div class="form-group">
           <label>
             メールアドレス:
@@ -38,6 +39,8 @@ ruby:
   ul
     li.is-active
       a HTML
+    li
+      a HTML(without validation)
     li
       a CSS
 pre
