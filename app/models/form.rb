@@ -2,7 +2,7 @@
 
 class Form < ApplicationRecord
   belongs_to :user
-  has_many :inquiries
+  has_many :inquiries, dependent: :destroy
 
   validates :name, presence: true
   validates :domain, presence: true
