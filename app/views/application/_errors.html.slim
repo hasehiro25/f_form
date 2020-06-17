@@ -1,7 +1,8 @@
 - if object.errors.any?
-  h3
-    | 入力内容にエラーがありました
-    ul
-      - object.errors.full_messages.each do |msg|
-        li
-          = msg
+  .notification.is-danger
+    h3
+      | 入力内容にエラーがありました
+      ul
+        - object.errors.full_messages.each do |msg|
+          li
+            = msg
