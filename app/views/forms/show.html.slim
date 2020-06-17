@@ -1,22 +1,33 @@
-h1= @form.name
-dl
-  dt
-    | ドメイン名
-  dd
-    = @form.domain
-  dt
-    | リダイレクト先
-  dd
-    = @form.redirect_url
-  dt
-    | Endpointid
-  dd
-    = @form.endpoint_id
-  dt
-    | Recaptchaの設定
-  dd
-    = @form.recaptcha_status? ? "あり" : "なし"
-div
-  = link_to "フォームを編集する", edit_form_path(@form)
-div
-  = link_to "フォームを削除する", form_path(@form), method: :delete, data: { confirm: "本当に削除してよろしいでしょうか？" }
+.container
+  h1.has-text-centerd.is-size-3= @form.name
+  .columns
+    .column.is-half
+      table
+      dl
+        dt
+          | ドメイン名
+        dd
+          = @form.domain
+        dt
+          | リダイレクト先
+        dd
+          = @form.redirect_url
+        dt
+          | Endpointid
+        dd
+          = @form.endpoint_id
+        dt
+          | Recaptchaの設定
+        dd
+          = @form.recaptcha_status? ? "あり" : "なし"
+      section
+        = link_to "フォームを編集する", edit_form_path(@form), class: "button is-primary"
+  .columns
+    .column.is-full
+      section
+        h2.title.is-4 コードサンプル
+        = render "sample_code"
+  .columns
+    .column.is-half
+      section
+        = link_to "フォームを削除する", form_path(@form), method: :delete, data: { confirm: "本当に削除してよろしいでしょうか？" }, class: "button is-danger"
