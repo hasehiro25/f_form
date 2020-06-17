@@ -6,6 +6,6 @@ module UrlHelper
   end
 
   def fform_core_js_url
-    "#{root_url}/form_lib.js"
+    "#{root_url}fform_core.js"
   end
 end
