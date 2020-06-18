@@ -1,0 +1,19 @@
+section
+  .container
+    .columns.is-centered
+      .column.is-two-thirds
+        h2.title パスワードの変更
+        = render "application/errors", object: current_user
+        = form_with model: current_user, url: account_password_path, local: true do |f|
+          .field
+            = f.label :password, class: "label"
+            = f.password_field :password, class: "input"
+
+          .field
+            = f.label :password_confirmation, class: "label"
+            = f.password_field :password_confirmation, class: "input"
+
+          .field
+            = f.submit class: "button is-primary"
+        = link_to "アカウント設定に戻る", edit_account_path
+    
