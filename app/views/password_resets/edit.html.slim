@@ -1,1 +1,14 @@
-h1 password edit
+section
+  .container
+    .columns.is-centered
+      .column.is-one-third
+        h1.title パスワードを変更
+        = form_with model: @user, url: password_reset_path(@token), local: true do |f|
+          .field
+            = f.label :password, class: "label"
+            = f.password_field :password, class: "input"
+          .field
+            = f.label :password_confirmation, class: "label"
+            = f.password_field :password_confirmation, class: "input"
+          .field
+            =f.submit class: "button is-primary"

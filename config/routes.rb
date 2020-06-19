@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :password_resets, only: [:show, :create, :edit, :update]
+  resources :password_resets, only: [:index, :create, :edit, :update]
 
   resources :forms
 
