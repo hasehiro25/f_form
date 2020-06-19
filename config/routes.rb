@@ -5,12 +5,14 @@ Rails.application.routes.draw do
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"
   delete "logout", to: "user_sessions#destroy"
-
   resources :users, only: [:new, :create] do
     member do
       get :activate
     end
   end
+
+  resource :password_resets, only: [:show, :create, :edit, :update]
+
   resources :forms
 
   resource :account, only: [:edit, :update] do
