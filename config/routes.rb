@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   end
   resources :forms
 
+  resource :account, only: [:edit, :update] do
+    resource :password, only: [:edit, :update], controller: "account/passwords"
+  end
+
   namespace :api do
     namespace :v1 do
       resources :forms, only: [:show]

@@ -1,0 +1,17 @@
+section
+  .container
+    .columns.is-centered
+      .column.is-two-thirds
+        h1.title アカウント設定
+        = render "application/errors", object: current_user
+        = form_with model: current_user, url: account_path, local: true do |f| 
+          .field
+            = f.label :email, class: "label"
+            = f.text_field :email, class: "input"
+
+          .field
+            = f.label :password, class: "label"
+            = link_to "パスワードを変更", edit_account_password_path, class: "button is-light"
+          
+          .field
+            = f.submit class: "button is-primary"
