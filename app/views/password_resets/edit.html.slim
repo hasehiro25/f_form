@@ -3,6 +3,7 @@ section
     .columns.is-centered
       .column.is-one-third
         h1.title パスワードを変更
+        = render 'application/errors', object: @user
         = form_with model: @user, url: password_reset_path(@token), local: true do |f|
           .field
             = f.label :password, class: "label"
