@@ -2,11 +2,11 @@ section
   .container
     .columns.is-centered
       .column.is-one-third
-        h1.title パスワードリセット
+        h1.title パスワードをリセット
 
         = form_with url: password_resets_path, local: true do |f|
           .field
-            = f.label :email, class: "label"
+            = f.label :email, "メールアドレス", class: "label"
             = f.text_field :email, class: "input"
           .field
             = f.submit "送信", class: "button is-primary"
