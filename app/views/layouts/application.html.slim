@@ -34,3 +34,4 @@ html
             .navbar-item= current_user.email
             = link_to "ログアウト", logout_path, method: :delete, class: "navbar-item"
     = yield
+  = render "footer"
