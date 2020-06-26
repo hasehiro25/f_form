@@ -86,15 +86,21 @@ ruby:
   }
   EOS
 
-.tabs
+.tabs.js-tabs
   ul
-    li.is-active
+    li.is-active{data-tab-id="tab01"}
       a HTML
-    li
+    li{data-tab-id="tab02"}
       a CSS
-pre
-  = sample_html
-hr
 
-pre
-  = sample_css
+.tabs-content
+  .tabs-content__item.is-active{data-tab-id="tab01"}
+    a.button.is-info
+      | COPY HTML
+    pre
+      = sample_html
+  .tabs-content__item{data-tab-id="tab02"}
+    a.button.is-info
+      | COPY CSS
+    pre
+      = sample_css
