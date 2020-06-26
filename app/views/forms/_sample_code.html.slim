@@ -1,6 +1,6 @@
 ruby:
   recaptcha_code = <<-EOS
-
+  
     <div class="fform-group">
       <script src="https://www.google.com/recaptcha/api.js" async defer></script>
       <div class="g-recaptcha" data-callback="allowSubmit" data-expired-callback="disableSubmit" data-sitekey="#{Settings.recaptcha_site_key}"></div>
@@ -32,6 +32,7 @@ ruby:
         <textarea class="fform-textarea" name="メッセージ"></textarea>
       </label>
     </div>
+
   #{recaptcha_code if form.recaptcha_status?}
     <div class="fform-group">
       <button type="submit" class="fform-submit fform-js-submit">Send</button>
@@ -98,12 +99,12 @@ ruby:
 
 .tabs-content
   .tabs-content__item.is-active{data-tab-id="tab01"}
-    a.button.is-info
+    button.clipboard-btn.button.is-info{data-clipboard-target="#sample-html"}
       | COPY HTML
     pre
-      = sample_html
+     #sample-html= sample_html
   .tabs-content__item{data-tab-id="tab02"}
-    a.button.is-info
+    button.clipboard-btn.button.is-info{data-clipboard-target="#sample-css"}
       | COPY CSS
     pre
-      = sample_css
+      #sample-css= sample_css
