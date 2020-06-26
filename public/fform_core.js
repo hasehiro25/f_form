@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const errors = document.querySelectorAll("[class^=fform-js-error]")
+  const errors = document.querySelectorAll(".fform-error")
   const blank_validations = document.querySelectorAll(".fform-js-blank-validation")
   const emailValidations = document.querySelectorAll(".fform-js-email-validation")
   const numericValidations = document.querySelectorAll(".fform-js-numeric-validation")
