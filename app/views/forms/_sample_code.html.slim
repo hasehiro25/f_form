@@ -24,7 +24,15 @@ ruby:
           <textarea class="fform-textarea" name="メッセージ"></textarea>
         </label>
       </div>
-      <button type="submit" class="fform-submit fform-js-submit">Send</button>
+      <!-- Recaptchaを使用する場合は追加する -->
+      <div class="fform-group">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <div class="g-recaptcha" data-callback="allowSubmit" data-expired-callback="disableSubmit" data-sitekey="#{Settings.recaptcha_site_key}"></div>
+      </div>
+      <!-- recaptcha ここまで  -->
+      <div class="fform-group">
+        <button type="submit" class="fform-submit fform-js-submit">Send</button>
+      </div>
     </form>
   EOS
 
@@ -56,9 +64,9 @@ ruby:
     height: 10rem;
   }
   .fform-submit {
-    border: 1px solid #c1e1ec;
+    border: 1px solid #9ACEE0;
     border-radius: 10px;
-    background: #c1e1ec;
+    background: #9ACEE0;
     font-size: 1.1rem;
     color: #fff;
     padding: 1rem 5rem;
@@ -72,7 +80,10 @@ ruby:
     outline: none;
     border: 2px solid #86c5da;
   }
-
+  .fform-submit:disabled{
+    background: #c1e1ec;
+    cursor: not-allowed;
+  }
   EOS
 
 .tabs
