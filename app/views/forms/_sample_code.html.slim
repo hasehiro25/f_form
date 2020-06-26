@@ -1,6 +1,6 @@
 ruby:
   recaptcha_code = <<-EOS
-  
+
     <div class="fform-group">
       <script src="https://www.google.com/recaptcha/api.js" async defer></script>
       <div class="g-recaptcha" data-callback="allowSubmit" data-expired-callback="disableSubmit" data-sitekey="#{Settings.recaptcha_site_key}"></div>
@@ -26,13 +26,13 @@ ruby:
       </label>
       <div class="fform-error fform-js-error-blank">・お名前を入力してください</div>
     </div>
+
     <div class="fform-group">
       <label>
         メッセージ:
         <textarea class="fform-textarea" name="メッセージ"></textarea>
       </label>
     </div>
-
   #{recaptcha_code if form.recaptcha_status?}
     <div class="fform-group">
       <button type="submit" class="fform-submit fform-js-submit">Send</button>
@@ -44,9 +44,6 @@ ruby:
   .fform-group {
     display: block;
     margin-bottom: 2rem;
-  }
-  .fform-error {
-    color: red;
   }
 
   .fform-input {
@@ -67,6 +64,7 @@ ruby:
     width: 100%;
     height: 10rem;
   }
+
   .fform-submit {
     border: 1px solid #9ACEE0;
     border-radius: 10px;
@@ -80,13 +78,19 @@ ruby:
     opacity: 0.9;
     cursor: pointer;
   }
+
   .fform-submit:focus{
     outline: none;
     border: 2px solid #86c5da;
   }
+
   .fform-submit:disabled{
     background: #c1e1ec;
     cursor: not-allowed;
+  }
+
+  .fform-error {
+    color: red;
   }
   EOS
 
