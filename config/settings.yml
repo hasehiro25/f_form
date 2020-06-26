@@ -1,0 +1,12 @@
+default: &default
+  recaptcha_site_key: <%= ENV["RECAPTCHA_SITE_KEY"] %>
+  recaptcha_secret_key: <%= ENV["RECAPTCHA_SECRET_KEY"] %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
