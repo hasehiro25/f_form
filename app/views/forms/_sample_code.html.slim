@@ -1,39 +1,42 @@
 ruby:
-  sample_html = <<-EOS
-    <script defer src="#{fform_core_js_url}"></script>
-    <form action="#{endpoint_url(form.endpoint_id)}" method="post">
-      <div class="fform-group">
-        <label>
-          メールアドレス:
-          <input type="email" name="メールアドレス" class="fform-input fform-js-blank-validation fform-js-email-validation">
-        </label>
-        <div class="fform-error fform-js-error-email">・メールアドレスの形式が違います</div>
-        <div class="fform-error fform-js-error-blank">・メールアドレスを入力してください</div>
-      </div>
+  recaptcha_code = <<-EOS
 
-      <div class="fform-group">
-        <label>
-          お名前:
-          <input type="text" name="お名前" class="fform-input fform-js-blank-validation">
-        </label>
-        <div class="fform-error fform-js-error-blank">・お名前を入力してください</div>
-      </div>
-      <div class="fform-group">
-        <label>
-          メッセージ:
-          <textarea class="fform-textarea" name="メッセージ"></textarea>
-        </label>
-      </div>
-      <!-- Recaptchaを使用する場合は追加する -->
-      <div class="fform-group">
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-        <div class="g-recaptcha" data-callback="allowSubmit" data-expired-callback="disableSubmit" data-sitekey="#{Settings.recaptcha_site_key}"></div>
-      </div>
-      <!-- recaptcha ここまで  -->
-      <div class="fform-group">
-        <button type="submit" class="fform-submit fform-js-submit">Send</button>
-      </div>
-    </form>
+    <div class="fform-group">
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+      <div class="g-recaptcha" data-callback="allowSubmit" data-expired-callback="disableSubmit" data-sitekey="#{Settings.recaptcha_site_key}"></div>
+    </div>
+  EOS
+
+  sample_html = <<-EOS
+  <script defer src="#{fform_core_js_url}"></script>
+  <form action="#{endpoint_url(form.endpoint_id)}" method="post">
+    <div class="fform-group">
+      <label>
+        メールアドレス:
+        <input type="email" name="メールアドレス" class="fform-input fform-js-blank-validation fform-js-email-validation">
+      </label>
+      <div class="fform-error fform-js-error-email">・メールアドレスの形式が違います</div>
+      <div class="fform-error fform-js-error-blank">・メールアドレスを入力してください</div>
+    </div>
+
+    <div class="fform-group">
+      <label>
+        お名前:
+        <input type="text" name="お名前" class="fform-input fform-js-blank-validation">
+      </label>
+      <div class="fform-error fform-js-error-blank">・お名前を入力してください</div>
+    </div>
+    <div class="fform-group">
+      <label>
+        メッセージ:
+        <textarea class="fform-textarea" name="メッセージ"></textarea>
+      </label>
+    </div>
+  #{recaptcha_code if form.recaptcha_status?}
+    <div class="fform-group">
+      <button type="submit" class="fform-submit fform-js-submit">Send</button>
+    </div>
+  </form>
   EOS
 
   sample_css = <<-EOS
