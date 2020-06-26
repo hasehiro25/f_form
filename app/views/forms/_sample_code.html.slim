@@ -1,38 +1,78 @@
 ruby:
-  code = <<-EOS
-  <HTML>
-    <head>
-    </head>
-    <body>
-      <!-- フォーム部分 -->
-      <script defer src="#{fform_core_js_url}"></script>
-      <form action="#{endpoint_url(form.endpoint_id)}" method="post">
-        <div class="form-group">
-          <label>
-            メールアドレス:
-            <input type="email" name="メールアドレス" class="fform-js-blank-validation fform-js-email-validation">
-          </label>
-          <div class="fform-js-error-email">・メールアドレスの形式が違います</div>
-          <div class="fform-js-error-blank">・メールアドレスを入力してください</div>
-        </div>
+  sample_html = <<-EOS
+    <script defer src="#{fform_core_js_url}"></script>
+    <form action="#{endpoint_url(form.endpoint_id)}" method="post">
+      <div class="fform-group">
+        <label>
+          メールアドレス:
+          <input type="email" name="メールアドレス" class="fform-input fform-js-blank-validation fform-js-email-validation">
+        </label>
+        <div class="fform-error fform-js-error-email">・メールアドレスの形式が違います</div>
+        <div class="fform-error fform-js-error-blank">・メールアドレスを入力してください</div>
+      </div>
 
-        <div class="form-group">
-          <label>
-            お名前:
-            <input type="text" name="お名前" class="fform-js-blank-validation">
-          </label>
-          <div class="fform-js-error-blank">・お名前を入力してください</div>
-        </div>
-        <div class="form-group">
-          <label>
-            メッセージ:
-            <textarea name="メッセージ"></textarea>
-          </label>
-        </div>
-        <button type="submit" class="fform-js-submit">Send</button>
-      </form>
-    </body> 
-  </HTML>
+      <div class="fform-group">
+        <label>
+          お名前:
+          <input type="text" name="お名前" class="fform-input fform-js-blank-validation">
+        </label>
+        <div class="fform-error fform-js-error-blank">・お名前を入力してください</div>
+      </div>
+      <div class="fform-group">
+        <label>
+          メッセージ:
+          <textarea class="fform-textarea" name="メッセージ"></textarea>
+        </label>
+      </div>
+      <button type="submit" class="fform-submit fform-js-submit">Send</button>
+    </form>
+  EOS
+
+  sample_css = <<-EOS
+  .fform-group {
+    display: block;
+    margin-bottom: 2rem;
+  }
+  .fform-error {
+    color: red;
+  }
+
+  .fform-input {
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    margin-top: 5px;
+    height: 1.3rem;
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+  }
+
+  .fform-textarea {
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    display: block;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    height: 10rem;
+  }
+  .fform-submit {
+    border: 1px solid #c1e1ec;
+    border-radius: 10px;
+    background: #c1e1ec;
+    font-size: 1.1rem;
+    color: #fff;
+    padding: 1rem 5rem;
+  }
+
+  .fform-submit:hover {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+  .fform-submit:focus{
+    outline: none;
+    border: 2px solid #86c5da;
+  }
+
   EOS
 
 .tabs
@@ -40,8 +80,10 @@ ruby:
     li.is-active
       a HTML
     li
-      a HTML(without validation)
-    li
       a CSS
 pre
-  = code
+  = sample_html
+hr
+
+pre
+  = sample_css
