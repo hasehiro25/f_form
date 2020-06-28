@@ -7,8 +7,11 @@ section
           h2.title.is-5 メールアドレス 
           p
             = current_user.email
-          p
-            = link_to "アドレスを変更", edit_account_password_path, class: "button is-light"
+          - if current_user.unconfirmed_email.present?
+            p
+              .email-pending= current_user.unconfirmed_email.email
+        p
+          = link_to "アドレスを変更", edit_account_email_path, class: "button is-light"
 
         .field
           h2.title.is-5 パスワード

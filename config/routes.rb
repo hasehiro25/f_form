@@ -12,11 +12,17 @@ Rails.application.routes.draw do
   end
 
   resources :password_resets, only: [:index, :create, :edit, :update]
+  resources :unconfirmed_email, only: [] do
+    member do
+      get "confirm"
+    end
+  end
 
   resources :forms
 
   resource :account, only: [:show] do
     resource :password, only: [:edit, :update], controller: "account/passwords"
+    resource :email, only: [:edit, :update], controller: "account/email"
   end
 
   namespace :api do
