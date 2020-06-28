@@ -1,0 +1,16 @@
+section
+  .container
+    .columns.is-centered
+      .column.is-two-thirds
+        h1.title アカウント設定
+        .field
+          h2.title.is-5 メールアドレス 
+          p
+            = current_user.email
+          p
+            = link_to "アドレスを変更", edit_account_password_path, class: "button is-light"
+
+        .field
+          h2.title.is-5 パスワード
+          p
+            = link_to "パスワードを変更", edit_account_password_path, class: "button is-light"
