@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class TokenGenerator
-  ALGORITHM = 'SHA256'
+  ALGORITHM = "SHA256"
 
   def initialize(klass, column, algorithm: "SHA256")
     @klass = klass
@@ -15,7 +17,7 @@ class TokenGenerator
     loop do
       raw = friendly_token
       enc = digest(raw)
-      break [raw, enc] unless @klass.exists?({@column => enc})
+      break [raw, enc] unless @klass.exists?({ @column => enc })
     end
   end
 
@@ -25,6 +27,6 @@ class TokenGenerator
     end
 
     def friendly_token(length = 20)
-      SecureRandom.urlsafe_base64(length * 3 / 4).tr('lIO0', 'sxyz')
+      SecureRandom.urlsafe_base64(length * 3 / 4).tr("lIO0", "sxyz")
     end
 end
