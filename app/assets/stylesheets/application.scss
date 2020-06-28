@@ -14,13 +14,4 @@
  *= require_self
  */
 @import "bulma";
-
-.tabs-content {
-  .tabs-content__item {
-    display: none;
-  }
-
-  .is-active {
-    display: block;
-  }
-}
+@import "tabs";
