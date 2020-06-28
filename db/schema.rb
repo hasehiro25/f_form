@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_19_071037) do
+ActiveRecord::Schema.define(version: 2020_06_28_065535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(version: 2020_06_19_071037) do
     t.index ["form_id"], name: "index_inquiries_on_form_id"
   end
 
+  create_table "unconfirmed_emails", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "email", null: false
+    t.string "encoded_token", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_unconfirmed_emails_on_email"
+    t.index ["encoded_token"], name: "index_unconfirmed_emails_on_encoded_token", unique: true
+    t.index ["user_id"], name: "index_unconfirmed_emails_on_user_id", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
@@ -56,4 +67,5 @@ ActiveRecord::Schema.define(version: 2020_06_19_071037) do
 
   add_foreign_key "forms", "users"
   add_foreign_key "inquiries", "forms"
+  add_foreign_key "unconfirmed_emails", "users"
 end
