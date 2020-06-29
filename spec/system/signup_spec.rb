@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
-
 WebMock.disable_net_connect!(
   allow_localhost: true,
   allow: "chromedriver.storage.googleapis.com"
 )
-require "rails_helper"
 
+require "rails_helper"
 
 RSpec.describe "signup", type: :system do
   it "should make account and able to login" do

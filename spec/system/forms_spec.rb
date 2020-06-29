@@ -36,6 +36,7 @@ RSpec.describe "forms", type: :system do
         expect(page.body).not_to match 'class="g-recaptcha"'
       end
     end
+
     context "with recaptcha" do
       it "should create form with recaptcha sample html" do
         # login_user(user.email, "hogehoge")
@@ -67,6 +68,7 @@ RSpec.describe "forms", type: :system do
       expect(form.reload.name).to eq "sampleform updated"
     end
   end
+
   describe "delete form" do
     let!(:form) { create :form, user: user }
     it "should delete form" do

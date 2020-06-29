@@ -20,7 +20,6 @@ RSpec.describe "reset password", type: :system do
     fill_in "user_password", with: "newpassword"
     fill_in "user_password_confirmation", with: "newpassword"
     click_on "更新する"
-
     expect(page.body).to match "パスワードを変更しました"
 
     fill_in "user_email", with: user.email
