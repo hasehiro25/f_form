@@ -12,7 +12,16 @@ RSpec.describe "forms", type: :system do
   before do
     login_user(user.email, "hogehoge")
   end
-  describe "make form" do
+
+  describe "show form" do
+    let!(:form) { create :form, user: user }
+    it "should show form" do
+      visit root_path
+      expect(page.body).to match "sampleform"
+    end
+  end
+
+  describe "create form" do
     context "without recaptcha" do
       it "should create form" do
         visit root_path
