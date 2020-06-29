@@ -9,4 +9,5 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
 
   has_many :forms, dependent: :destroy
+  has_one :unconfirmed_email
 end

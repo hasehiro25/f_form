@@ -19,4 +19,11 @@ class UserMailer < ApplicationMailer
     mail(to: user.email,
          subject: "パスワードリセットを受け付けました")
   end
+
+  def confirm_new_address_email(unconfirmed_email)
+    @url = confirm_unconfirmed_email_url(id: unconfirmed_email.raw_token)
+    @email = unconfirmed_email.email
+    mail(to: unconfirmed_email.email,
+      subject: "メール変更の確認")
+  end
 end

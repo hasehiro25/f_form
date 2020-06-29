@@ -1,0 +1,15 @@
+section
+  .container
+    .columns.is-centered
+      .column.is-two-thirds
+        h2.title メーアドレスの変更
+        = render "application/errors", object: current_user.unconfirmed_email if current_user.unconfirmed_email.present?
+        = form_with model: current_user, url: account_email_path, local: true do |f|
+          .field
+            = f.label :email, "新しいアドレス", class: "label"
+            = f.text_field :email, class: "input"
+
+          .field
+            = f.submit class: "button is-primary"
+        = link_to "アカウント設定に戻る", account_path
+    

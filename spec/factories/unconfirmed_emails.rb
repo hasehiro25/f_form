@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :inquiry do
+  factory :unconfirmed_email do
   end
 end
