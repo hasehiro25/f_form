@@ -7,7 +7,7 @@ RSpec.describe Form, type: :model do
     let(:user) { create(:activated_user) }
     let(:form) { build(:form, user: user) }
     it "should save form" do
-      expect(form.save).to eq true
+      expect(form.save).to eq false
     end
     it "should have uuid in endpoint_id" do
       form.save
