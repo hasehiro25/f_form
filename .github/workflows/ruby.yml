@@ -24,6 +24,8 @@ jobs:
       run: |
         gem install bundler
         bundle install --path vendor/bundle --without production
+    - name: Rubocop
+      run: bundle exec rubocop
   test:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'ci skip')"
