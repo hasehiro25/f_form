@@ -8,7 +8,7 @@ class FormsController < ApplicationController
   def create
     @form = current_user.forms.new(form_params)
     if @form.save
-      redirect_to @form
+      redirect_to @form, notice: "新しいフォームを作成しました"
     else
       render "new"
     end
