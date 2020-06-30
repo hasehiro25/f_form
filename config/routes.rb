@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :forms
 
-  resource :account, only: [:show] do
+  resource :account, only: [:show, :destroy] do
     resource :password, only: [:edit, :update], controller: "account/passwords"
     resource :email, only: [:edit, :update], controller: "account/email"
   end

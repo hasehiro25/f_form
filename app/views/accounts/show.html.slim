@@ -3,17 +3,17 @@ section
     .columns.is-centered
       .column.is-two-thirds
         h1.title アカウント設定
-        .field
-          h2.title.is-5 メールアドレス 
-          p
-            = current_user.email
+        .account-group
+          h2.account-group__label メールアドレス 
+          .account-group__content= current_user.email
           - if current_user.unconfirmed_email.present?
-            p
-              .email-pending= current_user.unconfirmed_email.email
-        p
-          = link_to "アドレスを変更", edit_account_email_path, class: "button is-light"
+            .account-group__email--pending = current_user.unconfirmed_email.email
+          = link_to "アドレスを変更", edit_account_email_path, class: "button is-light account-group__button"
 
-        .field
-          h2.title.is-5 パスワード
-          p
-            = link_to "パスワードを変更", edit_account_password_path, class: "button is-light"
+        .account-group
+          h2.account-group__label パスワード
+          = link_to "パスワードを変更", edit_account_password_path, class: "button is-light"
+
+        .account-delete
+          h2.account-group__label アカウントを削除
+          = link_to "アカウントの削除", account_path, method: :delete, class: "button is-danger", data: {confirm: "関連する全てのデータも削除します。復元できませんが本当にアカウントを削除してよろしいですか？"}
