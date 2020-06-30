@@ -13,3 +13,7 @@ section
         .account-group
           h2.account-group__label パスワード
           = link_to "パスワードを変更", edit_account_password_path, class: "button is-light"
+
+        .account-delete
+          h2.account-group__label アカウントを削除
+          = link_to "アカウントの削除", account_path, method: :delete, class: "button is-danger", data: {confirm: "関連する全てのデータも削除します。復元できませんが本当にアカウントを削除してよろしいですか？"}
