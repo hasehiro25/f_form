@@ -23,7 +23,7 @@ RSpec.describe "signup", type: :system do
 
     fill_in "user_email", with: "sample123@sample.com"
     fill_in "user_password", with: "password"
-    click_on "ログイン"
+    find("input[type=submit]").click
     expect(page.body).to match "ログインしました"
   end
 end
