@@ -6,6 +6,6 @@ class AccountsController < ApplicationController
 
   def destroy
     current_user.destroy
-    redirect_to root_path, notice: "アカウントを削除しました"
+    redirect_to login_path, notice: "アカウントを削除しました"
   end
 end
