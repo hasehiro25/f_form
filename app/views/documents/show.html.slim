@@ -1,0 +1,104 @@
+section
+  .container
+    section
+      h1.title ドキュメント
+      p
+      h2.title QUICK START
+      p
+        | 新しいフォームを作る際に「フォーム名」「ドメイン名」を入力すると新規のフォームが作成できます。
+      p
+        | 必要があれば、問い合わせ後の「リダイレクト先」の指定やrecaptchaの有無を設定できます。
+      p
+        | フォーム詳細にあるHTMLとCSSを貼ると以下のようなフォームを簡単に設置できます。
+      = link_to "サンプルフォーム", sampleform_document_path, class:"button is-primary", target: "_blank"
+      .columns
+        .column.is-one-third
+          img src="/form_image.png"
+    section
+      h2.title  フォームの構造と項目の追加
+      h3.title フォームの構造
+      p
+        | フォームのvalidation機能やrecaptcha機能はアプリのJSライブラリ「fform_core.js」を読み込むことによって動作します。
+      p 
+        | もしも上記の機能を使わないのであれば読み込まないように削除しても大丈夫です。
+      p
+        | フォームの項目は基本的に以下のような構造で動くようになっています。
+      pre
+        | &lt;div class="fform-group"&gt;
+            &lt;label&gt;
+              &lt;input type="email" name="メールアドレス" class="fform-input fform-js-blank-validation fform-js-email-validation&gt;
+              &lt;div class="fform-error fform-js-error-email"&gt;・メールアドレスの形式が正しくありません&lt;/div&gt;
+              &lt;div class="fform-error fform-js-error-blank"&gt;・メールアドレスを入力してください&lt;/div&gt;
+            &lt;/label&gt;
+          &lt;/div&gt;
+ 
+      p
+        | 「fform-js」とついてるクラスはvalidationチェックのために使うクラスとなります。詳しくはvalidationクラス一覧をご覧ください。
+      p
+        | 項目とエラー文はdivなどのタグで囲ってください（この場合は &lt; div class="fform-group"&gt;）。validationがどのinputと紐づいているか認識するために、同一のタグ内である必要があります。
+      p
+        | また「fform-」とjsがついていないものに関してはスタイルをあてるためのクラスなので編集したり削除しても問題ありません。
+      p
+        | フォームの内容はアプリ内で設定されたエンドポイントURLにPOSTし、そこにきたリクエスト内容を登録されたメールに転送します。
+
+      h3.title 項目の追加
+      p
+        | formタグ内にinputを追加し、nameの部分に追加したい項目を入れることによって簡単に追加できます。
+      pre
+        | &lt; div class="fform-group" &gt;
+            &lt; input type="text" name="新しい項目"&gt;
+          &lt;/div&gt;
+      p
+        | 必要に応じてclassにスタイルやvalidationを追加してください。以下のコードでは入力を必須にするためのコードを追加してみました。
+      pre
+        | &lt; div class="fform-group" &gt;
+            &lt; input type="text" name="新しい項目だよ" class="fform-js-blank-validation"&gt;
+            &lt;div class="fform-error fform-js-error-blank"&gt;・メールアドレスを入力してください&lt;/div&gt;
+          &lt;/div&gt;
+
+    section
+      h2.title validationクラス一覧
+      p
+        | input側にクラス名を追加することによってvalidationが有効になります。
+      p
+        | また、対応するエラー表示classを追加することによってvalidation失敗時のメッセージを表示することができます。
+      pre
+        | &lt; div class="fform-group" &gt;
+            &lt;!-- "fform-js-blank-validation"によってチェックが入るように --&gt;
+            &lt; input type="text" name="email" class="fform-js-blank-validation"&gt;
+             &lt;!-- "fform-js-blank-validation"でvaldidationが失敗した場合、下のメッセージを表示するように"fform-js-error-blank"を追加 --&gt;
+            &lt;div class="fform-js-error-blank"&gt;・メールアドレスを入力してください&lt;/div&gt;
+          &lt;/div&gt;
+      table.table
+        th クラス名
+        th 内容
+        th 対応するエラー表示クラス
+        tr
+          td fform-js-blank-validation
+          td inputが空欄じゃないかチェック(valueの値を参照)
+          td fform-js-error-blank
+        tr
+          td fform-js-email-validation
+          td メールの形式が合ってるかチェック
+          td fform-js-error-email
+        tr
+          td fform-js-numeric-validation
+          td 半角数字のみかチェック
+          td fform-js-error-numeric
+        tr
+          td form-js-fullwidth-char-validation
+          td 半角英数字記号のみかチェック
+          td fform-js-error-fullwidth-char
+    section
+      h2.title Recaptchaの設定
+      p
+        | スパム対策としてrecaptchaを設定できるようにしてあります。ユーザー側でアカウントを作るは　必要ありません。
+      p
+        | 設定画面でrecaptchaを有効にすると以下のコードがテンプレートHTMLに追加されていますので、そのまま追加してください。
+      p
+        | なお設定画面の設定と連動しておりますので、もしrecaptchaが不要になったら設定を無効にするのを忘れないでください
+      pre
+        | &lt; div class="fform-group" &gt;
+            &lt;script src="https://www.google.com/recaptcha/api.js" async defer&gt; &lt;script&gt;
+            &lt;div class="g-recaptcha" data-callback="allowSubmit" data-expired-callback="disableSubmit" data-sitekey="#{Settings.recaptcha_site_key}"&gt;&lt;/div&gt;
+          &lt;/div&gt;

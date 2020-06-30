@@ -29,7 +29,7 @@ html
             .navbar-item
               = link_to "アカウント設定", account_path, class: "navbar-item"
             .navbar-item
-              | マニュアル
+              = link_to "ドキュメント", document_path, class: "navbar-item"
           .navbar-end
             .navbar-item= current_user.email
             = link_to "ログアウト", logout_path, method: :delete, class: "navbar-item"

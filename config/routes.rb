@@ -31,5 +31,9 @@ Rails.application.routes.draw do
       post "forms(/:id)", to: "forms#create"
     end
   end
+  resource :document, only: [:show] do
+    get "sampleform", to: "document/sampleform#index", as: "sampleform"
+  end
+
   get "thankyou", to: "thankyou#index", as: "thankyou"
 end
