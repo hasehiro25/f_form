@@ -14,8 +14,8 @@ section style="padding: 5rem 0; background: #f5f5f5;"
       .column.is-half
         h1.title.is-1 F-FORM
         h1.subtitle フォームをもっとシンプルに
-        a.button.is-primary.is-large
-          | 無料でアカウントを作成
+        = link_to "無料でアカウントを作成", new_user_path, class: "button is-primary is-large"
+          
 
 section style="padding: 5rem 0;"
   .container
@@ -90,5 +90,4 @@ section style="padding: 5rem 0; background: #eaeaea"
   .container
     .columns.is-centered
       .column.is-half style="text-align: center;"
-        a.button.is-primary.is-large
-          | 無料でアカウントを作成
+        = link_to "無料でアカウントを作成", new_user_path, class: "button is-primary is-large"
