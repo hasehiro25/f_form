@@ -9,7 +9,8 @@ section
       p
         | 必要があれば、問い合わせ後の「リダイレクト先」の指定やrecaptchaの有無を設定できます。
       p
-        | フォーム詳細にあるコードとCSSを貼ると以下のようなフォームを簡単に設置できます。
+        | フォーム詳細にあるHTMLとCSSを貼ると以下のようなフォームを簡単に設置できます。
+      = link_to "サンプルフォーム", sampleform_document_path, class:"button is-primary", target: "_blank"
       .columns
         .column.is-one-third
           img src="/form_image.png"
@@ -28,7 +29,7 @@ section
               &lt;input type="email" name="メールアドレス" class="fform-input fform-js-blank-validation fform-js-email-validation&gt;
               &lt;div class="fform-error fform-js-error-email"&gt;・メールアドレスの形式が正しくありません&lt;/div&gt;
               &lt;div class="fform-error fform-js-error-blank"&gt;・メールアドレスを入力してください&lt;/div&gt;
-            &lt;label&gt;
+            &lt;/label&gt;
           &lt;/div&gt;
  
       p
@@ -57,6 +58,17 @@ section
 
     section
       h2.title validationクラス一覧
+      p
+        | input側にクラス名を追加することによってvalidationが有効になります。
+      p
+        | また、対応するエラー表示classを追加することによってvalidation失敗時のメッセージを表示することができます。
+      pre
+        | &lt; div class="fform-group" &gt;
+            &lt;!-- "fform-js-blank-validation"によってチェックが入るように --&gt;
+            &lt; input type="text" name="email" class="fform-js-blank-validation"&gt;
+             &lt;!-- "fform-js-blank-validation"でvaldidationが失敗した場合、下のメッセージを表示するように"fform-js-error-blank"を追加 --&gt;
+            &lt;div class="fform-js-error-blank"&gt;・メールアドレスを入力してください&lt;/div&gt;
+          &lt;/div&gt;
       table.table
         th クラス名
         th 内容
