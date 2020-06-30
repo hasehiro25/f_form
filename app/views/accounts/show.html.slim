@@ -8,7 +8,7 @@ section
           .account-group__content= current_user.email
           - if current_user.unconfirmed_email.present?
             .account-group__email--pending = current_user.unconfirmed_email.email
-            = link_to "アドレスを変更", edit_account_email_path, class: "button is-light account-group__button"
+          = link_to "アドレスを変更", edit_account_email_path, class: "button is-light account-group__button"
 
         .account-group
           h2.account-group__label パスワード
