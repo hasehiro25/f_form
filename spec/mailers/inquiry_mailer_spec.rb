@@ -16,7 +16,7 @@ RSpec.describe InquiryMailer, type: :mailer do
     it "renders the header" do
       expect(mail.subject).to eq("お問い合わせがありました")
       expect(mail.to).to eq([user.email])
-      expect(mail.from).to eq(["from@example.com"])
+      expect(mail.from).to eq(["noreply@stage-form-maker.herokuapp.com"])
     end
 
     it "renders the body" do

@@ -8,9 +8,9 @@ RSpec.describe UserMailer, type: :mailer do
     let(:mail) { UserMailer.activation_needed_email(user) }
 
     it "renders the headers" do
-      expect(mail.subject).to eq("Formへのご登録ありがとうございます")
+      expect(mail.subject).to eq("F-Formへのご登録ありがとうございます")
       expect(mail.to).to eq([user.email])
-      expect(mail.from).to eq(["from@example.com"])
+      expect(mail.from).to eq(["noreply@stage-form-maker.herokuapp.com"])
     end
 
     it "renders the body" do
@@ -23,13 +23,13 @@ RSpec.describe UserMailer, type: :mailer do
     let(:mail) { UserMailer.activation_success_email(user) }
 
     it "renders the headers" do
-      expect(mail.subject).to eq("Formのアカウントを有効にしました")
+      expect(mail.subject).to eq("メールアドレスの認証に成功しました")
       expect(mail.to).to eq([user.email])
-      expect(mail.from).to eq(["from@example.com"])
+      expect(mail.from).to eq(["noreply@stage-form-maker.herokuapp.com"])
     end
 
     it "renders the body" do
-      expect(mail.body.encoded).to match("アカウントを有効にしました。")
+      expect(mail.body.encoded).to match("メールアドレスの認証に成功いたしました。")
     end
   end
 end
