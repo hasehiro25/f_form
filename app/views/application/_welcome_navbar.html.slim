@@ -1,7 +1,6 @@
 navbar.navbar
   .navbar-brand
-    .navbar-item
-      | F-FORM
+    =link_to "F-FORM", root_path, class: "navbar-item"
   .navbar-menu
     .navbar-end
       = link_to "ログイン", login_path, class: "navbar-item"
