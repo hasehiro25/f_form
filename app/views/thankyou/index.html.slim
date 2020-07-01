@@ -1,3 +1,11 @@
 - content_for(:page_class, "thankyou")
-h1 thankyou
-= link_to '戻る', :back
+section
+  .container
+    .thankyou-page-container
+      h1.thankyou-page__header ThankYou
+      .thankyou-page-content
+        .thankyou-page-content__text
+          | フォーム内容を送信しました
+      .thankyou-page-content
+        .thankyou-page-content__link
+          = link_to '戻る', :back, class: "button is-primary"
