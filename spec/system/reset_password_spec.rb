@@ -24,7 +24,7 @@ RSpec.describe "reset password", type: :system do
 
     fill_in "user_email", with: user.email
     fill_in "user_password", with: "newpassword"
-    click_on "ログイン"
+    find("input[type=submit]").click
     expect(page.body).to match "ログインしました"
   end
 end

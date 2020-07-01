@@ -36,4 +36,5 @@ Rails.application.routes.draw do
   end
 
   get "thankyou", to: "thankyou#index", as: "thankyou"
+  get "welcome", to: "welcome#index", as: "welcome"
 end

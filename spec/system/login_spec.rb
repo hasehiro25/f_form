@@ -14,7 +14,7 @@ RSpec.describe "login", type: :system do
       visit login_path
       fill_in "user_email", with: user.email
       fill_in "user_password", with: "hogehoge"
-      click_on "ログイン"
+      find("input[type=submit]").click
       expect(page.body).to match "ログインしました"
     end
   end

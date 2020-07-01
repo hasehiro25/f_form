@@ -4,6 +4,7 @@ html
   head
     title
       | Form
+    meta content="width=device-width, initial-scale=1" name="viewport"
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all'
@@ -11,26 +12,12 @@ html
   body
   - if class_page == "thankyou"
     = yield
-  - else
-    - flash.each do |flash_key, value|
-      - key = nil
-      - key = "success" if flash_key == "notice"
-      - key = "danger" if flash_key == "alert"
-      = content_tag :div, value, class: "notification is-#{key} is-light" if key
-
-    - if logged_in?
-      navbar.navbar
-        .navbar-brand
-          .navbar-item
-            | FORM MAKER
-        .navbar-menu
-          .navbar-start
-            = link_to "トップ", root_path, class: "navbar-item"
-            .navbar-item
-              = link_to "アカウント設定", account_path, class: "navbar-item"
-            .navbar-item
-              = link_to "ドキュメント", document_path, class: "navbar-item"
-          .navbar-end
-            .navbar-item= current_user.email
-            = link_to "ログアウト", logout_path, method: :delete, class: "navbar-item"
+  - elsif logged_in?
+    = render "global_navbar"
+    = render "flash"
     = yield
+  - else
+    = render "welcome_navbar"
+    = render "flash"
+    = yield
+  = render "footer"
