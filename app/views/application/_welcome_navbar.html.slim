@@ -1,7 +1,12 @@
-navbar.navbar
+nav.navbar aria-label=("main navigation") role="navigation"
   .navbar-brand
     =link_to "F-FORM", root_path, class: "navbar-item"
-  .navbar-menu
+    a.navbar-burger.burger aria-expanded="false" aria-label="menu" data-target="navbarBasicExample" role="button"
+      span aria-hidden="true"
+      span aria-hidden="true"
+      span aria-hidden="true"
+  #navbarBasicExample.navbar-menu
+    .navbar-start
     .navbar-end
       = link_to "ログイン", login_path, class: "navbar-item"
       = link_to "アカウント作成", new_user_path, class: "navbar-item"
