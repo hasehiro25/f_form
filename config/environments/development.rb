@@ -37,7 +37,7 @@ Rails.application.configure do
 
 
   # configuration for action_mailer delivery
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :letter_opener_web
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { host: "localhost:3000" }
 
