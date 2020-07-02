@@ -16,7 +16,7 @@ RSpec.describe "signup", type: :system do
     fill_in "user_password_confirmation", with: "password"
 
     expect { click_on "登録する" }.to change { ActionMailer::Base.deliveries.count }.by 1
-    expect(ActionMailer::Base.deliveries.last.subject).to match "Formへのご登録ありがとうございます"
+    expect(ActionMailer::Base.deliveries.last.subject).to match "F-FORMへのご登録ありがとうございます"
 
     visit activate_user_path(User.last.reload.activation_token)
     expect(page.body).to match "アカウントを作成しました"
