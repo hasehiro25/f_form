@@ -11,7 +11,7 @@ RSpec.describe RecaptchaChecker do
           to_return(
             body: { "success": true, "hostname": "example.com" }.to_json,
             status: 200,
-            headers: { "Content-Type"=> "application/json" }
+            headers: { "Content-Type" => "application/json" }
           )
       end
       it "should return true" do
@@ -24,7 +24,7 @@ RSpec.describe RecaptchaChecker do
             to_return(
               body: { "success": true, "hostname": "wronghost.com" }.to_json,
               status: 200,
-              headers: { "Content-Type"=> "application/json" }
+              headers: { "Content-Type" => "application/json" }
             )
         end
         it "should return false" do
@@ -40,7 +40,7 @@ RSpec.describe RecaptchaChecker do
         to_return(
           body: { "success": false, "hostname": "example.com" }.to_json,
           status: 200,
-          headers: { "Content-Type"=> "application/json" }
+          headers: { "Content-Type" => "application/json" }
         )
       end
       it "should return false" do
