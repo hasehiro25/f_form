@@ -265,3 +265,6 @@ Performance/ReverseEach:
 
 Performance/UnfreezeString:
   Enabled: true
+
+Layout/SpaceAroundOperators:
+  Enabled: true
