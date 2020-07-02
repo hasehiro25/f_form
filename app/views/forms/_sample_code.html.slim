@@ -1,58 +1,3 @@
-ruby:
-  sample_css = <<-EOS
-  .fform-group {
-    display: block;
-    margin-bottom: 2rem;
-  }
-
-  .fform-input {
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    margin-top: 5px;
-    height: 1.3rem;
-    display: block;
-    width: 100%;
-    padding: 0.5rem 1rem;
-  }
-
-  .fform-textarea {
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    display: block;
-    padding: 0.5rem 1rem;
-    width: 100%;
-    height: 10rem;
-  }
-
-  .fform-submit {
-    border: 1px solid #9ACEE0;
-    border-radius: 10px;
-    background: #9ACEE0;
-    font-size: 1.1rem;
-    color: #fff;
-    padding: 1rem 5rem;
-  }
-
-  .fform-submit:hover {
-    opacity: 0.9;
-    cursor: pointer;
-  }
-
-  .fform-submit:focus{
-    outline: none;
-    border: 2px solid #86c5da;
-  }
-
-  .fform-submit:disabled{
-    background: #c1e1ec;
-    cursor: not-allowed;
-  }
-
-  .fform-error {
-    color: red;
-  }
-  EOS
-
 .tabs.js-tabs
   ul
     li.is-active{data-tab-id="tab01"}
@@ -70,4 +15,4 @@ ruby:
     button.clipboard-btn.button.is-info{data-clipboard-target="#sample-css"}
       | COPY CSS
     pre
-      #sample-css= sample_css
+      #sample-css= render "sample_css"
