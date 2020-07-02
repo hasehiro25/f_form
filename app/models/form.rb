@@ -12,4 +12,8 @@ class Form < ApplicationRecord
   def create_endpoint_id
     self.endpoint_id ||= SecureRandom.uuid
   end
+
+  def same_domain?(requested_domain)
+    domain == requested_domain
+  end
 end
