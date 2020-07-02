@@ -5,7 +5,7 @@ class RecaptchaChecker
 
   def initialize(token:, registered_domain:)
     @token = token
-    @registered_domain  = registered_domain
+    @registered_domain = registered_domain
   end
 
   def valid_token?
