@@ -1,5 +1,5 @@
 .container
-  h1.has-text-centerd.is-size-3= @form.name
+  h1.title= @form.name
   .columns
     .column.is-half
       dl.form-info
@@ -12,7 +12,7 @@
         dd.form-info__item
           = @form.redirect_url
         dt.form-info__label
-          | Endpointid
+          | EndpointUrl
         dd.form-info__item
           = endpoint_url(@form.endpoint_id)
         dt.form-info__label
