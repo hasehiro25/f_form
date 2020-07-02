@@ -9,21 +9,21 @@ class Api::V1::FormsController < ApplicationController
 
   def create
     form = Form.find_by!(endpoint_id: params[:id])
-    authorize_domain(form.domain)
+    authorize_domain(form)
     data = request.request_parameters.to_h
-    process_recaptcha(data, domain,) if data.has_key?("g-recaptcha-response") || form.recaptcha_status?
+    process_recaptcha(data, requested_domain) if data.has_key?("g-recaptcha-response") || form.recaptcha_status?
     form.inquiries.create!(content: data.to_json)
     InquiryMailer.with(form: form, user: form.user, data: data).inquiry_info.deliver_now
     form.redirect_url? ? redirect_to(form.redirect_url) : redirect_to(thankyou_url)
   end
 
   private
-    def authorize_domain(form_domain)
-      raise "unauthorized domain" unless domain == form_domain
+    def authorize_domain(form)
+      raise "unauthorized domain" unless form.same_domain?(requested_domain)
     end
 
-    def domain
-      @domain ||= request.headers[:HTTP_ORIGIN].gsub(/(http|https):\/\//, "")
+    def requested_domain
+      @requested_domain ||= request.headers[:HTTP_ORIGIN].gsub(/(http|https):\/\//, "")
     end
 
     def process_recaptcha(data, domain)

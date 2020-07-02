@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
-require "net/http"
-
 class RecaptchaChecker
   RECAPTCHA_API_URL = "https://www.google.com/recaptcha/api/siteverify"
 
   def initialize(token:, registered_domain:)
     @token = token
-    @registered_domain  = registered_domain
+    @registered_domain = registered_domain
   end
 
   def valid_token?
