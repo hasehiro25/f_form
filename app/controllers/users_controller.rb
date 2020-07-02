@@ -3,17 +3,12 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create, :activate]
 
-  def new
-    redirect_to root_path if logged_in?
-    @user = User.new
-  end
-
   def create
     @user = User.new(user_params)
     if @user.save
       redirect_to login_path, notice: "アカウントを作成しました"
     else
-      render :new
+      render "signup/new"
     end
   end
 
