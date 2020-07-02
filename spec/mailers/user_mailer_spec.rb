@@ -8,7 +8,7 @@ RSpec.describe UserMailer, type: :mailer do
     let(:mail) { UserMailer.activation_needed_email(user) }
 
     it "renders the headers" do
-      expect(mail.subject).to eq("F-Formへのご登録ありがとうございます")
+      expect(mail.subject).to eq("F-FORMへのご登録ありがとうございます")
       expect(mail.to).to eq([user.email])
       expect(mail.from).to eq(["noreply@stage-form-maker.herokuapp.com"])
     end
