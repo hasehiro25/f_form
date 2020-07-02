@@ -1,99 +1,3 @@
-ruby:
-  recaptcha_code = <<-EOS
-
-    <div class="fform-group">
-      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-      <div class="g-recaptcha" data-callback="allowSubmit" data-expired-callback="disableSubmit" data-sitekey="#{Settings.recaptcha_site_key}"></div>
-    </div>
-  EOS
-
-  sample_html = <<-EOS
-  <script defer src="#{fform_core_js_url}"></script>
-  <form action="#{endpoint_url(form.endpoint_id)}" method="post">
-    <div class="fform-group">
-      <label>
-        メールアドレス:
-        <input type="email" name="メールアドレス" class="fform-input fform-js-blank-validation fform-js-email-validation">
-      </label>
-      <div class="fform-error fform-js-error-email">・メールアドレスの形式が違います</div>
-      <div class="fform-error fform-js-error-blank">・メールアドレスを入力してください</div>
-    </div>
-
-    <div class="fform-group">
-      <label>
-        お名前:
-        <input type="text" name="お名前" class="fform-input fform-js-blank-validation">
-      </label>
-      <div class="fform-error fform-js-error-blank">・お名前を入力してください</div>
-    </div>
-
-    <div class="fform-group">
-      <label>
-        メッセージ:
-        <textarea class="fform-textarea" name="メッセージ"></textarea>
-      </label>
-    </div>
-  #{recaptcha_code if form.recaptcha_status?}
-    <div class="fform-group">
-      <button type="submit" class="fform-submit fform-js-submit">Send</button>
-    </div>
-  </form>
-  EOS
-
-  sample_css = <<-EOS
-  .fform-group {
-    display: block;
-    margin-bottom: 2rem;
-  }
-
-  .fform-input {
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    margin-top: 5px;
-    height: 1.3rem;
-    display: block;
-    width: 100%;
-    padding: 0.5rem 1rem;
-  }
-
-  .fform-textarea {
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    display: block;
-    padding: 0.5rem 1rem;
-    width: 100%;
-    height: 10rem;
-  }
-
-  .fform-submit {
-    border: 1px solid #9ACEE0;
-    border-radius: 10px;
-    background: #9ACEE0;
-    font-size: 1.1rem;
-    color: #fff;
-    padding: 1rem 5rem;
-  }
-
-  .fform-submit:hover {
-    opacity: 0.9;
-    cursor: pointer;
-  }
-
-  .fform-submit:focus{
-    outline: none;
-    border: 2px solid #86c5da;
-  }
-
-  .fform-submit:disabled{
-    background: #c1e1ec;
-    cursor: not-allowed;
-  }
-
-  .fform-error {
-    color: red;
-  }
-  EOS
-
 .tabs.js-tabs
   ul
     li.is-active{data-tab-id="tab01"}
@@ -106,9 +10,9 @@ ruby:
     button.clipboard-btn.button.is-info{data-clipboard-target="#sample-html"}
       | COPY HTML
     pre
-     #sample-html= sample_html
+     #sample-html= render "sample_html", form: @form
   .tabs-content__item{data-tab-id="tab02"}
     button.clipboard-btn.button.is-info{data-clipboard-target="#sample-css"}
       | COPY CSS
     pre
-      #sample-css= sample_css
+      #sample-css= render "sample_css"

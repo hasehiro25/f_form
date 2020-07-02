@@ -1,0 +1,28 @@
+| &lt;script defer src="#{fform_core_js_url}"&gt;&lt;/script&gt;
+  &lt;form action="#{endpoint_url(form.endpoint_id)}" method="post"&gt;
+    &lt;div class="fform-group"&gt;
+      &lt;label&gt;
+        メールアドレス:
+        &lt;input type="email" name="メールアドレス" class="fform-input fform-js-blank-validation fform-js-email-validation"&gt;
+      &lt;/label&gt;
+      &lt;div class="fform-error fform-js-error-email"&gt;・メールアドレスの形式が違います&lt;/div&gt;
+      &lt;div class="fform-error fform-js-error-blank"&gt;・メールアドレスを入力してください&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="fform-group"&gt;
+      &lt;label&gt;
+        お名前:
+        &lt;input type="text" name="お名前" class="fform-input fform-js-blank-validation"&gt;
+      &lt;/label&gt;
+      &lt;div class="fform-error fform-js-error-blank"&gt;・お名前を入力してください&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="fform-group"&gt;
+      &lt;label&gt;
+        メッセージ:
+        &lt;textarea class="fform-textarea" name="メッセージ"&gt;&lt;/textarea&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+= render "recaptcha_code" if form.recaptcha_status?
+|   &lt;div class="fform-group"&gt;
+      &lt;button type="submit" class="fform-submit fform-js-submit"&gt;Send&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
