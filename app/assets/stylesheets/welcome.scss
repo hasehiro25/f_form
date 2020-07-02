@@ -1,0 +1,53 @@
+@import 'bulma';
+
+body.welcome-content {
+  overflow: hidden;
+}
+
+.welcome-main-visual {
+  background: #f2f2f2;
+  padding: 4rem 2rem;
+
+  @include until($tablet) {
+    padding: 2rem 0;
+  }
+
+  &__inner {
+    margin: 1rem 2rem;
+  }
+
+  &__title {
+    font-size: 6.5rem;
+    font-weight: bold;
+  }
+
+  &__subtitle {
+    font-size: 4.75rem;
+  }
+}
+
+.welcome-content {
+  padding: 5rem 0;
+
+  &--bgc {
+    background: #f2f2f2;
+  }
+
+  &__image {
+    &--border {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    @include until($tablet) {
+      max-width: 300px;
+      margin: 0rem 1rem;
+    }
+  }
+}
+
+.welcome-bottom-cta {
+  padding: 5rem 0;
+  background: #eaeaea;
+  ;
+}
