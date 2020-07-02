@@ -21,6 +21,7 @@ gem "rails-i18n", "~> 6.0.0"
 gem "faraday"
 gem "bulma-rails"
 gem "foreman"
+gem "draper"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

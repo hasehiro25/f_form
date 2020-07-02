@@ -1,25 +1,24 @@
 .container
-  h1.has-text-centerd.is-size-3= @form.name
+  h1.title= @form.name
   .columns
     .column.is-half
-      table
-      dl
-        dt
+      dl.form-info
+        dt.form-info__label
           | ドメイン名
-        dd
+        dd.form-info__item
           = @form.domain
-        dt
+        dt.form-info__label
           | リダイレクト先
-        dd
+        dd.form-info__item
           = @form.redirect_url
-        dt
-          | Endpointid
-        dd
+        dt.form-info__label
+          | EndpointUrl
+        dd.form-info__item
           = endpoint_url(@form.endpoint_id)
-        dt
+        dt.form-info__label
           | Recaptchaの設定
-        dd
-          = @form.recaptcha_status? ? "あり" : "なし"
+        dd.form-info__item
+          = @form.recaptcha_status
       section
         = link_to "フォームを編集する", edit_form_path(@form), class: "button is-primary"
   .columns

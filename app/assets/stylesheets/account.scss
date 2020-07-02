@@ -1,32 +1,32 @@
 .account-group {
   margin-bottom: 2rem;
-}
 
-.account-group__label {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.account-group__content {
-  font-size: 1.3rem;
-  margin-bottom: 0.3rem;
-}
-
-.account-group__email--pending {
-  &::after {
-    content: "認証待ち";
-    color: #fff;
-    background: #ff6666;
-    border-radius: 5px;
-    margin-left: 0.5rem;
+  &__label {
+    font-size: 0.8rem;
     font-weight: bold;
-    padding: 0.1rem 0.5rem;
+    margin-bottom: 0.5rem;
   }
-}
 
-.account-group__button {
-  margin-top: 0.7rem;
+  &__content {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  &__email--pending {
+    &:after {
+      content: "認証待ち";
+      color: #fff;
+      background: #ff6666;
+      border-radius: 5px;
+      margin-left: 0.5rem;
+      font-weight: bold;
+      padding: 0.1rem 0.5rem;
+    }
+  }
+
+  &__button {
+    margin-top: 0.7rem;
+  }
 }
 
 .account-delete {

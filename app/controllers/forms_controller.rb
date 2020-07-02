@@ -15,7 +15,7 @@ class FormsController < ApplicationController
   end
 
   def show
-    @form = set_form
+    @form = set_form.decorate
   end
 
   def edit
