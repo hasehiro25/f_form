@@ -23,7 +23,7 @@ class Api::V1::FormsController < ApplicationController
     end
 
     def requested_domain
-      @domain ||= request.headers[:HTTP_ORIGIN].gsub(/(http|https):\/\//, "")
+      @requested_domain ||= request.headers[:HTTP_ORIGIN].gsub(/(http|https):\/\//, "")
     end
 
     def process_recaptcha(data, domain)
