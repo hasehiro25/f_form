@@ -1,3 +1,4 @@
+
 .tabs.js-tabs
   ul
     li.is-active{data-tab-id="tab01"}
@@ -7,12 +8,12 @@
 
 .tabs-content
   .tabs-content__item.is-active{data-tab-id="tab01"}
-    button.clipboard-btn.button.is-info{data-clipboard-target="#sample-html"}
+    button.clipboard-btn.button.is-info.has-tooltip-right.has-tooltip-active{data-clipboard-target="#sample-html"}
       | COPY HTML
     pre
      #sample-html= render "sample_html", form: @form
   .tabs-content__item{data-tab-id="tab02"}
-    button.clipboard-btn.button.is-info{data-clipboard-target="#sample-css"}
+    button.clipboard-btn.button.is-info.has-tooltip-right.has-tooltip-active{data-clipboard-target="#sample-css"}
       | COPY CSS
     pre
       #sample-css= render "sample_css"
