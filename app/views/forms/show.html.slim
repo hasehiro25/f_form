@@ -18,7 +18,7 @@
         dt.form-info__label
           | Recaptchaの設定
         dd.form-info__item
-          = @form.recaptcha_status? ? "あり" : "なし"
+          = @form.recaptcha_status
       section
         = link_to "フォームを編集する", edit_form_path(@form), class: "button is-primary"
   .columns
