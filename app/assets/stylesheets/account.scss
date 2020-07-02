@@ -12,14 +12,16 @@
     margin-bottom: 0.3rem;
   }
 
-  &__email-pending {
-    content: "認証待ち";
-    color: #fff;
-    background: #ff6666;
-    border-radius: 5px;
-    margin-left: 0.5rem;
-    font-weight: bold;
-    padding: 0.1rem 0.5rem;
+  &__email--pending {
+    &:after {
+      content: "認証待ち";
+      color: #fff;
+      background: #ff6666;
+      border-radius: 5px;
+      margin-left: 0.5rem;
+      font-weight: bold;
+      padding: 0.1rem 0.5rem;
+    }
   }
 
   &__button {
