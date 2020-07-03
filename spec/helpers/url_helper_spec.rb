@@ -7,7 +7,6 @@ RSpec.describe UrlHelper do
     let(:user) { create(:activated_user) }
     let(:form) { create(:form, user: user) }
     it "should create url with endpoint" do
-      p root_url
       expect(endpoint_url(form.endpoint_id)).to eq "#{root_url}api/v1/forms/#{form.endpoint_id}"
     end
   end
