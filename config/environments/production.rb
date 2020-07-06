@@ -54,7 +54,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "form_production"
 
-  config.action_mailer.default_url_options = { host: "fform-demo.herokuapp.com" }
+  config.action_mailer.default_url_options = { host: "stage-form-maker.herokuapp.com" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     user_name: ENV["SENDGRID_USERNAME"],

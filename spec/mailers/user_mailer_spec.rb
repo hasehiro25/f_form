@@ -10,7 +10,7 @@ RSpec.describe UserMailer, type: :mailer do
     it "renders the headers" do
       expect(mail.subject).to eq("F-FORMへのご登録ありがとうございます")
       expect(mail.to).to eq([user.email])
-      expect(mail.from).to eq(["noreply@fform-demo.herokuapp.com"])
+      expect(mail.from).to eq(["noreply@stage-form-maker.herokuapp.com"])
     end
 
     it "renders the body" do
@@ -25,7 +25,7 @@ RSpec.describe UserMailer, type: :mailer do
     it "renders the headers" do
       expect(mail.subject).to eq("メールアドレスの認証に成功しました")
       expect(mail.to).to eq([user.email])
-      expect(mail.from).to eq(["noreply@fform-demo.herokuapp.com"])
+      expect(mail.from).to eq(["noreply@stage-form-maker.herokuapp.com"])
     end
 
     it "renders the body" do
