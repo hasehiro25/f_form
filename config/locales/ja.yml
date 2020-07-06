@@ -13,4 +13,4 @@ ja:
           domain: ドメイン名
           redirect_url: リダイレクト先
           endpoint_id: エンドポイントID
-          recaptcha_status: Recaptcha設定
+          recaptcha_status: reCAPTCHA設定
