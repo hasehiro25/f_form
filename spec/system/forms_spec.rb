@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-WebMock.disable_net_connect!(
-  allow_localhost: true,
-  allow: "chromedriver.storage.googleapis.com"
-)
-
 require "rails_helper"
 
 RSpec.describe "forms", type: :system do
@@ -39,7 +34,6 @@ RSpec.describe "forms", type: :system do
 
     context "with recaptcha" do
       it "should create form with recaptcha sample html" do
-        # login_user(user.email, "hogehoge")
         visit root_path
         click_on "新しいフォームを作る"
 

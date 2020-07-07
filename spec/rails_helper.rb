@@ -69,4 +69,5 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
   config.include LoginHelper, type: :system
+  config.include WebmockHelper, type: :system
 end
