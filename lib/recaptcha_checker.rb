@@ -17,7 +17,7 @@ class RecaptchaChecker
     def fetch_api
       url = URI.parse(RECAPTCHA_API_URL)
       body = {
-        "secret": ENV["RECAPTCHA_SECRET_KEY"],
+        "secret": Settings.recaptcha_secret_key,
         "response": @token
       }
       res = Faraday.post(url, body)
