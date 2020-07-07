@@ -16,12 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const elms of blank_validations) {
       const parent = elms.closest("div")
       const error = parent.querySelector(".fform-js-error-blank")
-      if (elms.value != "") {
-        error.style.display = "none"
-      } else {
-        error.style.display = "block"
-        sendable = false
-      }
+      const status = elms.value != ""
+      blockVisibility(status, error)
     }
   }
 
@@ -30,12 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const parent = elms.closest("div")
       const error = parent.querySelector(".fform-js-error-email")
       const regex = /^[a-zA-Z0-9.!#$%&’*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-      if (regex.test(elms.value)) {
-        error.style.display = "none"
-      } else {
-        error.style.display = "block"
-        sendable = false
-      }
+      const status = regex.test(elms.value)
+      blockVisibility(status, error)
     }
   }
 
@@ -43,12 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const elms of numericValidations) {
       const parent = elms.closest("div")
       const error = parent.querySelector(".fform-js-error-numeric")
-      if (Number.isInteger(parseInt(elms.value))) {
-        error.style.display = "none"
-      } else {
-        error.style.display = "block"
-        sendable = false
-      }
+      const status = Number.isInteger(parseInt(elms.value))
+      blockVisibility(status, error)
     }
   }
 
@@ -57,12 +45,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const parent = elms.closest("div")
       const error = parent.querySelector(".fform-js-error-fullwidth-char")
       const regex = /^[a-zA-Z0-9!-/:-@¥[-`{-~\]]*$/
-      if (regex.test(elms.value)) {
-        error.style.display = "none"
-      } else {
-        error.style.display = "block"
-        sendable = false
-      }
+      const status = regex.test(elms.value)
+      blockVisibility(status, error)
+    }
+  }
+
+  let blockVisibility = (status, elm) => {
+    if (status) {
+      elm.style.display = "none"
+    } else {
+      elm.style.display = "block"
+      sendable = false
     }
   }
 
