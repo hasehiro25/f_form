@@ -35,7 +35,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: form_app_test
+          POSTGRES_DB: f_form_test
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -71,7 +71,7 @@ jobs:
     - name: Set env
       run: |
         echo '::set-env name=RAILS_ENV::test'
-        echo '::set-env name=DATABASE_URL::postgres://postgres:postgres@localhost:5432/form_app_test'
+        echo '::set-env name=DATABASE_URL::postgres://postgres:postgres@localhost:5432/f_form_test'
     - name: setup DB
       run: |
         bundle exec rails db:schema:load

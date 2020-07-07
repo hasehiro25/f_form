@@ -23,13 +23,13 @@ default: &default
 
 development:
   <<: *default
-  database: form_app_development
+  database: f_form_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: form_app
+  #username: f_form
 
   # The password associated with the postgres role (username).
   #password:
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: form_app_test
+  database: f_form_test
 
 # As with config/credentials.yml, you never want to store sensitive inform_appation,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: form_app_production
-  username: form_app
-  password: <%= ENV['form_app_DATABASE_PASSWORD'] %>
+  database: f_form_production
+  username: f_form
+  password: <%= ENV['f_form_DATABASE_PASSWORD'] %>
