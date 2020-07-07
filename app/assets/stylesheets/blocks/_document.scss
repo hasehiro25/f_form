@@ -1,0 +1,15 @@
+.document {
+  &__title {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+
+  &__subtitle {
+    margin-top: 1.7rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+}
