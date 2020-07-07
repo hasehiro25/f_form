@@ -23,7 +23,7 @@ section
         | もしも上記の機能を使わないのであれば削除しても問題ありません。
       p
         | フォームの項目は基本的に以下のような構造で動くようになっています。
-      pre
+      pre.document-code
         | &lt;div class="fform-group"&gt;
             &lt;label&gt;
               &lt;input type="email" name="メールアドレス" class="fform-input fform-js-blank-validation fform-js-email-validation&gt;
@@ -44,13 +44,13 @@ section
       h3.document__subtitle 項目の追加
       p
         | formタグ内にinputを追加し、nameの部分に追加したい項目を入れることによって簡単に追加できます。
-      pre
+      pre.document-code
         | &lt; div class="fform-group" &gt;
             &lt; input type="text" name="新しい項目"&gt;
           &lt;/div&gt;
       p
         | 必要に応じてclassにスタイルやvalidationを追加してください。以下のコードでは入力を必須にするためのコードを追加してみました。
-      pre
+      pre.document-code
         | &lt; div class="fform-group" &gt;
             &lt; input type="text" name="新しい項目" class="fform-js-blank-validation"&gt;
             &lt;div class="fform-error fform-js-error-blank"&gt;・メールアドレスを入力してください&lt;/div&gt;
@@ -62,7 +62,7 @@ section
         | input側にクラス名を追加することによってvalidationが有効になります。
       p
         | また、対応するエラー表示classを追加することによってvalidation失敗時のメッセージを表示することができます。
-      pre
+      pre.document-code
         | &lt; div class="fform-group" &gt;
             &lt;!-- "fform-js-blank-validation"によってチェックが入るように --&gt;
             &lt; input type="text" name="email" class="fform-js-blank-validation"&gt;
@@ -97,7 +97,7 @@ section
         | 設定画面でreCAPTCHAを有効にすると以下のコードがテンプレートHTMLに表示されますので、そのまま追加してください。
       p
         | なお設定画面の設定と連動しておりますので、もしreCAPTCHAが不要になった場合は設定を無効にするのを忘れないでください
-      pre
+      pre.document-code
         | &lt; div class="fform-group" &gt;
             &lt;script src="https://www.google.com/recaptcha/api.js" async defer&gt; &lt;script&gt;
             &lt;div class="g-recaptcha" data-callback="allowSubmit" data-expired-callback="disableSubmit" data-sitekey="#{Settings.recaptcha_site_key}"&gt;&lt;/div&gt;
