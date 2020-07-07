@@ -1,0 +1,6 @@
+.input-required {
+  &::before {
+    content: "*";
+    color: #ff0000;
+  }
+}

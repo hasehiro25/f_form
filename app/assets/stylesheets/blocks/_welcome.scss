@@ -1,4 +1,4 @@
-@import 'bulma';
+@import "sass/utilities/all";
 
 body.welcome {
   overflow: hidden;
@@ -19,10 +19,18 @@ body.welcome {
   &__title {
     font-size: 6.5rem;
     font-weight: bold;
+
+    @include until($tablet) {
+      font-size: 5rem;
+    }
   }
 
   &__subtitle {
-    font-size: 4.75rem;
+    font-size: 4.3rem;
+
+    @include until($tablet) {
+      font-size: 3rem;
+    }
   }
 }
 
@@ -31,6 +39,15 @@ body.welcome {
 
   &--bgc {
     background: #f2f2f2;
+  }
+
+  &__image-icon {
+    max-width: 200px;
+
+    @include until($tablet) {
+      max-width: 100px;
+      margin: 0rem 1rem;
+    }
   }
 
   &__image {
