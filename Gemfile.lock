@@ -139,7 +139,7 @@ GEM
     multi_json (1.14.1)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
-    nio4r (2.5.2)
+    nio4r (2.5.8)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     oauth (0.5.4)
@@ -154,7 +154,7 @@ GEM
       ast (~> 2.4.0)
     pg (1.2.3)
     public_suffix (4.0.5)
-    puma (4.3.5)
+    puma (4.3.12)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-proxy (0.6.5)
@@ -314,7 +314,7 @@ DEPENDENCIES
   letter_opener_web
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
-  puma (~> 4.1)
+  puma (~> 4.3)
   rails (~> 6.0.3, >= 6.0.3.2)
   rails-i18n (~> 6.0.0)
   rspec-rails
